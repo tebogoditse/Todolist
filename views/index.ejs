@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of the Week</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div id="heading" class="box">
+        <h1><%= dayOfWeek %></h1>
+    </div>
+
+    <div class="box">
+
+            <% addItem.forEach(function(item){ %>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="checked" value="<%= item.name %>" onChange="this.form.submit()">
+                        <p><%= item.name %><p>
+                    </div>
+                </form>
+                
+            <% }) %>
+
+            <form action='/' method="post">
+                <input type="text" name="addItem" placeholder="Add item">
+                <button type="submit" name="bttn">+</button>
+            </form>
+
+    </div>
+    
+
+</body>
+</html>
